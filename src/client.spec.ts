@@ -14,7 +14,7 @@ describe('Client', () => {
     try {
       const client = new Client(MOCK_URL)
       await client.fetch('/bad')
-      expect.fail()
+      expect.fail('This should not be reached!')
     } catch (e) {
       expect(e.message).to.have.string('failed with status code 500')
     }
@@ -24,7 +24,7 @@ describe('Client', () => {
     try {
       const client = new Client(MOCK_URL)
       await client.fetch('/junk')
-      expect.fail()
+      expect.fail('This should not be reached!')
     } catch (e) {
       expect(e.message).to.have.string('not valid jsend')
     }
@@ -34,7 +34,7 @@ describe('Client', () => {
     try {
       const client = new Client('no')
       await client.fetch('/where')
-      expect.fail()
+      expect.fail('This should not be reached!')
     } catch (e) {
       expect(e.message).to.have.string('ECONNREFUSED')
     }
